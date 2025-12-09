@@ -1,0 +1,15 @@
+[Unit]
+Description=iCloud Shared Album Sync Service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/digital-photo-frame
+ExecStart=/home/pi/digital-photo-frame/scripts/icloud_sync.sh
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target

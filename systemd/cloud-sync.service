@@ -1,0 +1,15 @@
+[Unit]
+Description=Digital Photo Frame Slideshow
+After=graphical.target
+
+[Service]
+Type=simple
+User=pi
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/pi/.Xauthority
+ExecStart=/home/pi/digital-photo-frame/scripts/slideshow.sh
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=graphical.target
