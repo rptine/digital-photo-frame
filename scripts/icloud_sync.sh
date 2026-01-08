@@ -26,9 +26,11 @@ echo "  Directory: ${FRAME_DIR}"
 echo "  Interval: ${SYNC_INTERVAL_SECONDS}s"
 echo
 
+PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring \
 "${ICLOUDPD_BIN}" \
   --username "${ICLOUD_USERNAME}" \
   --directory "${FRAME_DIR}" \
   --album "${ALBUM_NAME}" \
   --watch-with-interval "${SYNC_INTERVAL_SECONDS}" \
-  --auto-delete
+  --auto-delete \
+  --only-print-filenames
